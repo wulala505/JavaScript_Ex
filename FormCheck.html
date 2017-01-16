@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+    <!---menu-->
+    <link rel="stylesheet" href="css/superfish.css" media="screen">
+    <script src="js/jquery-1.9.0.min.js"></script>
+    <script src="js/hoverIntent.js"></script>
+    <script src="js/superfish.js"></script>
+    <script>
+
+        // initialise plugins
+        jQuery(function () {
+            jQuery('#example').superfish({
+                //useClick: true
+            });
+        });
+
+    </script>
+
+
+    <style>
+        body{
+            font-family: 'Asap', sans-serif;
+        }
+        fieldset{
+            width:550px;
+            margin: auto;
+            padding:15px;
+            border: 2px solid #009393;
+            border-radius: 15px 5px 15px 5px;
+        }
+         p {
+        font-size:70%;
+        color:gray;
+        }
+        span {
+        float:right;
+        }
+        #display{
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            document.getElementById("idName").onblur = chkName;
+            document.getElementById("idPwd").onblur = chkPwd;
+            document.getElementById("idDate").onblur = chkDate;
+            document.getElementById("s").onclick = function(){chkName(), chkPwd(), chkDate(),submit();}
+
+        }
+        function chkName() {
+            var theName = document.getElementById("idName").value;
+            var NameLen = theName.length;
+            var flag1 = false;
+
+            if (theName == "")
+                document.getElementById("idsp").innerHTML = "<img src='images/error.png'/>Invalid";
+            else if (NameLen >= 2) {
+                for (var i = 0; i < NameLen; i++) {
+                    var NameChar = theName.charCodeAt(i);
+
+                    //alert("Name = " + NameChar)
+                    if (NameChar >= "19968" && NameChar <= "40959") {
+                        flag1 = true;
+                    } else {
+                        flag1 = false;
+                        break;
+                    }
+                }
+                if (flag1){
+                    document.getElementById("idsp").innerHTML = "<img src='images/Correct.png'/>";
+                    flag4=true;
+                }
+                else{
+                    document.getElementById("idsp").innerHTML = "<img src='images/error.png'/>Invalid";}
+            }
+            else{
+                // alert("The length of name must be greater than 2 words.");
+                document.getElementById("idsp").innerHTML = "<img src='Images/error.png' />Invalid";}
+        }
+        function chkPwd() {
+            var thePwd = document.getElementById("idPwd").value;
+            var thePwdLen = thePwd.length;
+            var flag1 = false;
+            var flag2 = false;
+            var flag3 = false;
+
+            if (thePwd == "")
+                document.getElementById("pw").innerHTML = "<img src='images/error.png' />Invalid"
+            else if (thePwdLen >= 6) {
+                for (var i = 0; i < thePwdLen; i++) {
+                    var PwdChar = thePwd.substr(i, 1).toUpperCase();
+                    if (PwdChar >= "A" && PwdChar <= "Z")
+                        flag1 = true;
+                    else if (PwdChar >= "0" && PwdChar <= "9")
+                        flag2 = true;
+                    else if ((PwdChar >= " " && PwdChar <= "/") || PwdChar == "@" || PwdChar == "^")
+                        flag3 = true;
+                    if (flag1 && flag2 && flag3)
+                        break;
+                }
+                if (flag1 && flag2 && flag3){
+
+                    document.getElementById("pw").innerHTML =
+                        "<img src='images/Correct.png' />";
+                    flag5=true;
+                }
+                else
+                    {document.getElementById("pw").innerHTML = "<img src='images/error.png' />Invalid";}
+
+            }
+            else
+                {document.getElementById("pw").innerHTML = "<img src='images/error.png' />Invalid";}
+        }
+
+        function chkDate() {
+            var theDate = document.getElementById("idDate").value;
+            date = new Date(theDate);
+
+            var year = date.getFullYear();
+            var month = date.getMonth();
+            var datenum = date.getDate();
+
+            var cmprDate = year + "/" + (month+1) + "/" + datenum;
+
+            date.toString();
+            var d = new Date(year, month, datenum).toString();
+
+            if (date.toString() == "Invalid Date") {
+
+                document.getElementById("date").innerHTML =
+                        "<img src='images/error.png' />Invalid"
+
+            } else {
+                if (date.toString() == d) {
+                    document.getElementById("date").innerHTML =
+                         "<img src='images/Correct.png' />";
+                         flag6=true;
+                } else {
+
+                    document.getElementById("date").innerHTML =
+                            "<img src='images/error.png' />Invalid"
+                }
+            }
+        }
+        function submit(){
+            if(flag4 && flag5 && flag6){
+              document.getElementById("display").style.display="block";
+              document.getElementById("idName").innerHTML=document.getElementById("idName");
+              document.getElementById("idp").innerHTML=document.getElementById("idPwd");
+              document.getElementById("idd").innerHTML=document.getElementById("idDate");
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div class="header-wrap">
+  <div class="logo">
+    <h1><a href="index.html">JShomework</a></h1>
+  </div>
+  <div class="menu"> 
+     <!--<img src="images/menu-left.png" alt="image"/>-->
+      <ul class="sf-menu" id="example">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Multiplication table.html">9x9 table</a></li>
+          <li><a href="FormCheck.html">Form Check</a></li>
+          <li><a href="Star.html">Star </a></li>
+          <li class="current"><a href="Slider.html">Slider</a></li>
+          <li><a href="Calender.html">Calender</a> </li>
+    <!--<img src="images/menu-right.png" alt="image"/> </div>-->
+</div>
+<div class="page">
+  <div class="panel">
+    <div class="title">
+      <h1>Form Check</h1>
+      <h2>Homework 2 (2016/11/23)</h2>
+    </div>
+    <div class="content"> 
+        <form>
+        <fieldset>
+            <legend>Form Check</legend>
+            Name:<input type="text" id="idName" size="3" />
+            <span id="idsp"></span><br />
+            <p>(1.不可空白，2.至少兩個字以上,3.必須全部為中文字)</p><hr>
+            Password:<input type="text" id="idPwd" size="6" />
+             <span id="pw"></span><br />
+            <p>(1.不可空白，2.至少6個字且必須包含英文字母、數字、特殊字元[!@#$%^&*])</p><hr>
+            <label for="idDate">Date:</label><input type="text" id="idDate"/>
+            <span id="date"></span><br />
+            <p>格式:西元年/月/日 yyyy/MM/dd</p>
+            <input id="s" type="button" value="submit" />
+            <input type="reset" value="clear" /><br />
+            <hr>
+        </fieldset>
+        <fieldset id="display">
+            <legend>Input Data</legend>
+            <div>
+                Name:
+                <label for="idName"></label><br />
+            </div>
+            <div>
+                Password:<span id="idp"><label for="idPwd"></label></span><br />
+            </div>
+            <div>
+                <span id="idd">Date:
+                <label for="idDate"></label></span>
+                <br />
+            </div>
+
+        </fieldset>
+    </form>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="clear"></div>
+<div class="copyright-wrap">
+  <div class="copyright">
+    <div class="content">
+      <p>© 2016 pinchen | 
+        My Blog :<a href="http://wulala505.github.io"> wulala505.github.io</a></p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

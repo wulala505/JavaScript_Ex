@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+    
+    <!---menu--->
+    <link rel="stylesheet" href="css/superfish.css" media="screen">
+    <script src="js/jquery-1.9.0.min.js"></script>
+    <script src="js/hoverIntent.js"></script>
+    <script src="js/superfish.js"></script>
+    <script>
+
+        // initialise plugins
+        jQuery(function () {
+            jQuery('#example').superfish({
+                //useClick: true
+            });
+        });
+
+    </script>
+<style>
+* {box-sizing:border-box}
+body {font-family: Verdana,sans-serif;margin:0}
+.mySlides {display:none}
+
+.slideshow-container {
+  max-width: 590px;
+  position: relative;
+  margin: auto;
+  padding:20px;
+  border:1px solid gray;
+  box-sizing:border-box;
+  background: black;	
+  border-radius:10px;
+}
+
+
+.wrapper{
+	overflow: hidden;
+	position:relative;
+	height:300px;
+	top:auto;
+}
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+  opacity:o.5; /*透明度*/ 
+}
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.dot {
+  cursor:pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+
+</style>
+        <script>
+            window.onload = function () {
+
+                var slideIndex = 0;
+                play();
+
+                function play() {
+                    var slides = document.getElementsByClassName("mySlides");
+                    for (var i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                    }
+                    slideIndex++;
+                    if (slideIndex > slides.length) { slideIndex = 1 }
+                    slides[slideIndex - 1].style.display = "block";
+                    setTimeout(play, 1500);
+                }
+            }
+            var chnIndex = 1;
+            showSlides(chnIndex);
+
+            function plusSlides(n) {
+                showSlides(chnIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(chnIndex = n);
+            }
+
+            function showSlides(n) {
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("dot");
+                if (n > slides.length) { chnIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (var i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[chnIndex - 1].style.display = "block";
+                dots[chnIndex - 1].className += " active";
+            }
+
+    </script>
+        </head>
+<body>
+  <div class="header-wrap">
+            <div class="logo">
+                <h1><a href="index.html">JShomework</a></h1>
+            </div>
+            <div class="menu">
+                <!--<img src="images/menu-left.png" alt="image"/>-->
+                <ul class="sf-menu" id="example">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Multiplication table.html">9x9 table</a></li>
+                    <li><a href="FormCheck.html">Form Check</a></li>
+                    <li><a href="Star.html">Star </a></li>
+                    <li class="current"><a href="Slider.html">Slider</a></li>
+                    <li><a href="Calender.html">Calender</a> </li>
+                <!--<img src="images/menu-right.png" alt="image"/>-->
+
+            </div>
+            <!---header-wrap-->
+            <div class="page">
+                <div class="panel">
+                    <div class="title">
+                        <h1>Slider</h1>
+                        <h2>Homework 4 (2016/11/28)</h2>
+                    </div>
+
+
+<div class="slideshow-container">
+<div class="wrapper">
+<div class="mySlides">
+        <div class="numbertext">1 / 6</div>
+        <img src="images/food1.jpg" style="width: 100%">
+        <div class="text"></div>
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">2 / 6</div>
+        <img src="images/food2.jpg" style="width: 100%">
+        <div class="text"></div>
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">3 / 6</div>
+        <img src="images/food3.jpg" style="width: 100%">
+        <div class="text"></div>
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">4 / 6</div>
+        <img src="images/food4.jpg" style="width: 100%">
+        <div class="text"></div>
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">5 / 6</div>
+        <img src="images/food5.jpg" style="width: 100%">
+        <div class="text"></div>
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">6 / 6</div>
+        <img src="images/food6.jpg" style="width: 100%">
+        <div class="text"></div>
+    </div>
+
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span> 
+  <span class="dot" onclick="currentSlide(5)"></span> 
+  <span class="dot" onclick="currentSlide(6)"></span>    
+</div>
+<div>Photograph by Katie Yang</div>
+<!--<div class="clear"></div>-->
+<div class="copyright-wrap">
+  <div class="copyright">
+    <div class="content">
+      <p>  Katie's blog :<a href="http://curatingcuteness.com/">curatingcuteness.com</a></p>
+    </div>
+  </div>
+</div>
+</div>
+<!---footer-wrap--->
+<div class="clear"></div>
+<div class="copyright-wrap">
+  <div class="copyright">
+    <div class="content">
+      <p>© 2016 pinchen | 
+        My Blog :<a href="http://wulala505.github.io"> wulala505.github.io</a></p>
+    </div>
+  </div>
+</div>
+</body>
+</html> 

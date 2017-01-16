@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+    <!---menu--->
+    <link rel="stylesheet" href="css/superfish.css" media="screen">
+    <script src="js/jquery-1.9.0.min.js"></script>
+    <script src="js/hoverIntent.js"></script>
+    <script src="js/superfish.js"></script>
+    <script>
+
+        // initialise plugins
+        jQuery(function () {
+            jQuery('#example').superfish({
+                //useClick: true
+            });
+        });
+
+    </script>
+
+    <title></title>
+    <style>
+        /*body{
+            font-family: 'Asap', sans-serif;
+        }*/
+        body {
+            font-family: 'Pacifico', cursive;
+            font-family: 'Indie Flower', cursive;
+        }
+        #divid{
+            font-size:20px;
+            text-align: right;
+        }
+    </style>
+    <script>
+    // var star=document.querySelectorAll("div.s");
+    
+    window.onload=function(){
+        var star = document.getElementsByTagName("img");
+        var starLen=star.length;
+        for(var i=0;i<starLen;i++){
+            star[i].onmouseover=function(){mouseOver(this.id);}
+            star[i].onmouseout=function(){mouseOut(this.id);}
+            star[i].onclick=function(){click(this.id);}         
+     }
+     
+    function mouseOver(sid){
+        for(var j=0;j<=sid;j++){
+            document.images[j].src="images/chngstar.gif";
+        }
+    }
+    function mouseOut(sid){  
+        for(var k=4;k>=sid;k--){
+            document.images[k].src = "images/star.gif";
+        }
+    }
+    function click(sid){
+            switch(sid){
+                case '0':document.getElementById("divid").innerHTML="Good";break;
+                case '1':document.getElementById("divid").innerHTML="Very Good";break;
+                case '2': document.getElementById("divid").innerHTML = "Very Very Good"; break;
+                case '3': document.getElementById("divid").innerHTML = "Very Very Very Good"; break;
+                case '4': document.getElementById("divid").innerHTML = "Very Very Very Very Good"; break;
+            }
+    }
+     };
+    </script>
+    <body>
+        <div class="header-wrap">
+            <div class="logo">
+                <h1><a href="index.html">JShomework</a></h1>
+            </div>
+            <div class="menu">
+                <!--<img src="images/menu-left.png" alt="image"/>-->
+                <ul class="sf-menu" id="example">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Multiplication table.html">9x9 table</a></li>
+                    <li><a href="FormCheck.html">Form Check</a></li>
+                    <li><a href="Star.html">Star </a></li>
+                    <li class="current"><a href="Slider.html">Slider</a></li>
+                    <li><a href="Calender.html">Calender</a> </li>
+                    <!--<img src="images/menu-right.png" alt="image"/> </div>-->
+                </ul>
+            </div>
+            <!---header-wrap--->
+            <div class="page">
+                <div class="panel">
+                    <div class="title">
+                        <h1>Form Check</h1>
+                        <h2>Homework 3 (2016/11/25)</h2>
+    </div>
+        <div id="starBox">
+            <img class="s" id="0" src="images/star.gif"><img class="s" id="1" src="images/star.gif"><img class="s" id="2" src="images/star.gif"><img class="s" id="3" src="images/star.gif"><img class="s" id="4" src="images/star.gif">
+        </div>
+        <div class="text" id="divid">
+            <p>Star Assessment </p>
+        </div>
+    </body>
+</head>
+</html>
+
+
+
+

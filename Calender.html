@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+    <!---menu-->
+    <link rel="stylesheet" href="css/superfish.css" media="screen">
+    <script src="js/jquery-1.9.0.min.js"></script>
+    <script src="js/hoverIntent.js"></script>
+    <script src="js/superfish.js"></script>
+    <script>
+
+        // initialise plugins
+        jQuery(function () {
+            jQuery('#example').superfish({
+                //useClick: true
+            });
+        });
+
+    </script>
+
+<style>
+    body{
+            font-family: 'Asap', sans-serif;
+        }
+    fieldset{
+        width:300px;
+        height:100px;
+        border: 2px solid seagreen;
+        border-top: 35px solid seagreen;
+        margin: 0px auto;
+        padding:80px;
+        border-radius: 10px 10px 10px 10px;
+    }
+    form {
+        margin: 0 auto;
+        text-align:center;
+    }
+    select {
+        height:30px;
+        width:60px;
+    }
+    .border-top {
+            background-color:seagreen;
+    }
+    #urdate{
+        margin: 20px;
+    }
+</style>
+<script>
+    window.onload=function(){
+    document.getElementById("year").onchange=addDate;
+    document.getElementById("month").onchange=addDate;
+    document.getElementById("date").onchange=displayDate;
+    for(var i=2011;i<=2020;i++){
+        var opt=document.createElement("option");
+        opt.innerHTML=i;
+        opt.value=i;
+        document.getElementById("year").appendChild(opt);
+    }
+    for(var i=1;i<=12;i++){
+        var opt=document.createElement("option");
+        opt.innerHTML=i;
+        opt.value=i;
+        document.getElementById("month").appendChild(opt);
+    }
+    addDate();
+    function addDate(){
+        var yy=document.getElementById("year").value;
+        var mm=document.getElementById("month").value;
+        document.getElementById("date").innerHTML="";
+        var date=new Date(yy,mm,0);
+        var dateLen=date.getDate();
+        for(var i=1;i<=dateLen;i++){
+        var opt=document.createElement("option"); 
+        opt.innerHTML=i;
+        opt.value=i; 
+        document.getElementById("date").appendChild(opt);
+        }
+    }
+    function displayDate() {
+    var yy=document.getElementById("year").value;
+    var mm=document.getElementById("month").value;
+    var dd=document.getElementById("date").value
+    document.getElementById("urdate").innerHTML = yy + "/" + mm + "/" + dd ;
+}
+
+    };
+</script>
+</head>
+
+<body>
+    <div class="header-wrap">
+  <div class="logo">
+    <h1><a href="index.html">JShomework</a></h1>
+  </div>
+  <div class="menu"> 
+     <!--<img src="images/menu-left.png" alt="image"/>-->
+    	<ul class="sf-menu" id="example">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Multiplication table.html">9x9 table</a></li>
+            <li><a href="FormCheck.html">Form Check</a></li>
+            <li><a href="Star.html">Star </a></li>
+            <li class="current"><a href="Slider.html">Slider</a></li>
+            <li><a href="Calender.html">Calender</a> </li>
+    <!--<img src="images/menu-right.png" alt="image"/> </div>-->
+</div><!---header-wrap-->
+<div class="page">
+  <div class="panel">
+    <div class="title">
+      <h1>Calender</h1>
+      <h2>Homework 5 (2016/11/27)</h2>
+    </div>
+      <div class="border-top"> </div></br>
+    <fieldset>
+    <form class="dateBox">
+    <select id="year">
+    </select>
+    <select id="month">
+    </select>
+    <select id="date">
+
+    </select>
+    <div><p id="urdate">Your Date:</p></div>
+    </form>
+    </fieldset>
+</body>
+</html>

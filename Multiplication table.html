@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+    
+    <!---menu--->
+    <link rel="stylesheet" href="css/superfish.css" media="screen">
+    <script src="js/jquery-1.9.0.min.js"></script>
+    <script src="js/hoverIntent.js"></script>
+    <script src="js/superfish.js"></script>
+    <script>
+
+        // initialise plugins
+        jQuery(function () {
+            jQuery('#example').superfish({
+                //useClick: true
+            });
+        });
+
+    </script>
+
+
+    <style>
+        body {
+            font-family: 'Pacifico', cursive;
+            font-family: 'Indie Flower', cursive;
+        }
+        table, td {
+            margin:auto;
+            border:2px solid #FFCBB3;
+        }
+
+        p{
+            text-align:center;
+        }
+        tr{
+            background-color:	#C4E1FF;
+        }
+        .number{
+            color:#FF5809;
+        }
+    </style>
+
+</head>
+<body>
+<div class="header-wrap">
+  <div class="logo">
+    <h1><a href="index.html">JShomework</a></h1>
+  </div>
+  <div class="menu"> 
+     <!--<img src="images/menu-left.png" alt="image"/>-->
+    	<ul class="sf-menu" id="example">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Multiplication table.html">9x9 table</a></li>
+        <li><a href="FormCheck.html">Form Check</a></li>
+        <li><a href="Star.html">Star </a></li>
+        <li class="current"><a href="Slider.html">Slider</a></li>
+        <li><a href="Calender.html">Calender</a> </li>
+    <!--<img src="images/menu-right.png" alt="image"/> </div>-->
+</div><!---header-wrap--->
+<div class="page">
+  <div class="panel">
+    <div class="title">
+      <h1>Multiplication table</h1>
+      <h2>Homework 1 (2016/11/21)</h2>
+    </div>
+    <div class="content"> 
+         <script>
+
+             document.write("<p>Multiplication table</p>")
+             document.write("<table><tr>")
+             for (var i = 2; i < 10; i++) {
+                 document.write("<td class='number'>")
+                 for (var j = 1; j < 10; j++) {
+                     document.write(i + "*" + j + "=" + i * j + " <br>");
+                 }
+                 document.write("</td>")
+             }
+             document.write("</tr></table>");
+    </script>
+
+    </div>
+  </div>
+</div>
+
+<!---footer-wrap--->
+<div class="clear"></div>
+<div class="copyright-wrap">
+  <div class="copyright">
+    <div class="content">
+      <p>© 2016 pinchen | 
+        My Blog :<a href="http://wulala505.github.io"> wulala505.github.io</a></p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
